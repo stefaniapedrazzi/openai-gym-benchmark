@@ -16,6 +16,8 @@ COPY . .
 ARG DEFAULT_CONTROLLER
 ENV DEFAULT_CONTROLLER=${DEFAULT_CONTROLLER}
 
+RUN apt-get update
+RUN apt-get install -y python3-pip
 RUN pip3 install numpy opencv-python
 
 # Entrypoint command to launch default Python controller script

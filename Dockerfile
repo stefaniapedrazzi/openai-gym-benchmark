@@ -1,17 +1,25 @@
-# TODO: change to cyberbotics/webots.cloud:R2023a when available
-FROM leoduggan/webots.cloud-anim-edit:latest
+FROM cyberbotics/webots.cloud:R2022b
 
-# Copy all the benchmark files into a project directory (need to have the same name as the theia folder from webots.yml)
-RUN mkdir -p /usr/local/webots-project
-COPY . /usr/local/webots-project
+# Environment variables needed for Webots
+# https://cyberbotics.com/doc/guide/running-extern-robot-controllers#remote-extern-controllers
+ENV PYTHONPATH=${WEBOTS_HOME}/lib/controller/python38
+ENV PYTHONIOENCODING=UTF-8
+ENV LD_LIBRARY_PATH=${WEBOTS_HOME}/lib/controller:${LD_LIBRARY_PATH}
 
-# The world file path is extracted from webots.yml and is given by the build-arg:
-ARG WORLD_PATH
-ENV WORLD_PATH=${WORLD_PATH}
+# Default internal docker ip, used to connect controller to Webots
+ENV WEBOTS_CONTROLLER_URL=tcp://172.17.0.1:3005
 
-RUN pip3 install numpy
+# Copies all the file of the current folder into the docker container
+COPY . .
 
-# If called with no arguments, launch in headless mode
-# (for instance, on the simulation server of webots.cloud, the GUI is launched to stream it to the user and a different command is used)
-# - Launching Webots in shell mode to be able to read stdout from benchmark_record_action script
-CMD xvfb-run -e /dev/stdout -a webots --stdout --stderr --batch --mode=fast --no-rendering /usr/local/webots-project/${WORLD_PATH}
+# The default controller name is extracted from webots.yml and is given by the build-arg:
+ARG DEFAULT_CONTROLLER
+ENV DEFAULT_CONTROLLER=${DEFAULT_CONTROLLER}
+
+RUN apt-get update
+RUN apt-get install -y python3-pip
+RUN pip3 install numpy opencv-python
+
+# Entrypoint command to launch default Python controller script
+# (In shell form to allow variable expansion)
+ENTRYPOINT cd controllers/$DEFAULT_CONTROLLER && python3 $DEFAULT_CONTROLLER.py
