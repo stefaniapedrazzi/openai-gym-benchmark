@@ -16,6 +16,8 @@ COPY . .
 ARG DEFAULT_CONTROLLER
 ENV DEFAULT_CONTROLLER=${DEFAULT_CONTROLLER}
 
+RUN pip3 install numpy opencv-python
+
 # Entrypoint command to launch default Python controller script
 # (In shell form to allow variable expansion)
 ENTRYPOINT cd controllers/$DEFAULT_CONTROLLER && python3 $DEFAULT_CONTROLLER.py

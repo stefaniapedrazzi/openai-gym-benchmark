@@ -1,6 +1,6 @@
 <span id="title">
 
-# Benchmark organizer template
+# Visual Tracking benchmark template
 
 </span>
 
@@ -13,9 +13,6 @@
 - <https://github.com/cyberbotics/robot-programming-benchmark-disabled>
 - <https://github.com/cyberbotics/inverted-pendulum-benchmark-disabled>
 -->
-## Organizer setup
-
-To organize your own benchmark, follow the instructions in the [ORGANIZER.md](../../blob/main/ORGANIZER.md) file.
 
 ---
 
@@ -23,7 +20,7 @@ To organize your own benchmark, follow the instructions in the [ORGANIZER.md](..
 
 <span id="description">
 
-Write here a short description of your benchmark.
+Test benchmark based on visual tracking benchmark.
 
 </span>
 
@@ -33,10 +30,10 @@ Write here a short description of your benchmark.
 
 <span id="information">
 
-- Difficulty: Middle School, High School, Bachelor, Master or PhD
-- Robot: robot name
-- Language: programming language of the controller template
-- Commitment: amount of time needed to finish the benchmark
+- Difficulty: High School
+- Robot: Aibo
+- Language: python
+- Commitment: XX hours
 
 </span>
 
@@ -63,7 +60,7 @@ Click on the "Add people" and search for "ORGANIZER_NAME". When you found the or
 ### Register by posting an issue
 
 1. Go back to the main page of your repository if that is not the case and copy the repository URL from the address bar to your clipboard.
-1. ![Click here](https://github.com/ORGANIZER_NAME/ORGANIZER_REPOSITORY/issues/new?assignees=&labels=registration&template=registration_form.yml&title=Registration+to+benchmark) to go to the organizer repository and start your registration. If it doesn't work, you can do it manually by going to the organizer's repository, then to the "Issues" tab, creating a new issue and choosing "Registration to benchmark".
+1. ![Click here](https://github.com/stefaniapedrazzi/openai-gym-benchmark/issues/new?assignees=&labels=registration&template=registration_form.yml&title=Registration+to+benchmark) to go to the organizer repository and start your registration. If it doesn't work, you can do it manually by going to the organizer's repository, then to the "Issues" tab, creating a new issue and choosing "Registration to benchmark".
 1. Paste your repository URL in the URL field and click the "Submit new issue" button.
 
 A series of automated actions will take place in a few seconds. If everything went well, you should get a message saying that you are successfully registered to the benchmark. If there was a problem, read the feedback message, fix what is wrong and post a **"retry"** comment on the registration issue to re-run the automated verification.
