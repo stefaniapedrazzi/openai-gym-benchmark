@@ -1,7 +1,7 @@
 publish: true
 type: benchmark
 world:
-  file: worlds/visual_tracking.wbt
+  file: worlds/robot_programming.wbt
   max-duration: 30
   metric: percent
 dockerCompose: theia:webots-project/controllers/edit_me/
