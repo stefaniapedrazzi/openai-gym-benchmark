@@ -2,6 +2,6 @@ publish: true
 type: benchmark
 world:
   file: worlds/visual_tracking.wbt
-  max-duration: 30
+  max-duration: 150
   metric: percent
 dockerCompose: theia:webots-project/controllers/visual_tracking/
