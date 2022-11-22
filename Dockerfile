@@ -11,7 +11,8 @@ ENV WORLD_PATH=${WORLD_PATH}
 
 RUN apt-get update
 RUN apt-get install -y python3-pip
-RUN pip3 install numpy
+# need opencv for the simulation server (numpy is included in opencv)
+RUN pip3 install opencv-python
 
 # If called with no arguments, launch in headless mode
 # (for instance, on the simulation server of webots.cloud, the GUI is launched to stream it to the user and a different command is used)
