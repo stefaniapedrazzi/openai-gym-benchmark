@@ -29,6 +29,7 @@ AiboErs7 {
   rotation 0.01708188509204869 -0.7223048238922644 -0.6913638337255336 -0.068192399
   controller "visual_tracking"
   window "pan_tilt_camera_view"
+  synchronization FALSE
   camera_width 480
   camera_height 320
   headSlot [
