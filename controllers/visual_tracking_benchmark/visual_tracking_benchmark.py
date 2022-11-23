@@ -10,15 +10,6 @@ import numpy as np
 import os
 import sys
 
-try:
-    sys.path.append(os.path.join(os.path.normpath(os.environ.get("WEBOTS_HOME")), 'projects', 'samples', 'robotbenchmark',
-                                 'include'))
-    from robotbenchmark import robotbenchmarkRecord
-except ImportError:
-    sys.stderr.write("Warning: 'robotbenchmark' module not found.\n")
-    sys.exit(0)
-
-
 def normalize(v):
     """Return normalized 3D vector v."""
     det = math.sqrt(v[0] * v[0] + v[1] * v[1] + v[2] * v[2])
@@ -210,18 +201,11 @@ else:
     hitRate = float(hitsCount) / stepsCount
 
 robot.wwiSendText("stop")
-
-# Wait for record message.
-timestep = int(robot.getBasicTimeStep())
-while robot.step(timestep) != -1:
-    message = robot.wwiReceiveText()
-    while message:
-        if message.startswith("record:"):
-            record = robotbenchmarkRecord(message, "visual_tracking", hitRate)
-            robot.wwiSendText(record)
-            break
-        elif message == "exit":
-            break
-        message = robot.wwiReceiveText()
+# Performance output used by automated CI script
+CI = os.environ.get("CI")
+if CI:
+    print(f"performance:{hitRate}")
+else:
+    print(f"Final hit rate: {hitRate:.2f}")
 
 robot.simulationSetMode(Supervisor.SIMULATION_MODE_PAUSE)

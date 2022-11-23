@@ -5,8 +5,7 @@
 </span>
 
 <!-- This is the shield badge where you can replace the webots.cloud link in brackets with your personal webots.cloud page -->
-[![webots.cloud - Benchmark](https://img.shields.io/badge/webots.cloud-Benchmark-007ACC)](
-https://benchmark.webots.cloud/run?version=R2023a&url=https://github.com/stefaniapedrazzi/openai-gym-benchmark/blob/main/worlds/visual_tracking.wbt&type=benchmark)
+[![webots.cloud - Benchmark](https://img.shields.io/badge/webots.cloud-Benchmark-007ACC)](https://benchmark.webots.cloud/run?version=R2023a&url=https://github.com/stefaniapedrazzi/openai-gym-benchmark/blob/main/worlds/visual_tracking.wbt&type=benchmark)
 
 <!-- TODO: add examples when available
 ## Benchmark examples
